@@ -7,7 +7,7 @@ import (
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 
-	"github.com/ZeroTechh/VelocityCentral/services"
+	"github.com/ZeroTechh/VelocityCore/services"
 	"github.com/ZeroTechh/blaze"
 )
 
