@@ -1,4 +1,4 @@
-module github.com/ZeroTechh/VelocityCentral
+module github.com/ZeroTechh/VelocityCore
 
 go 1.13
 
