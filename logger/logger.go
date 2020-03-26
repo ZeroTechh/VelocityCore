@@ -7,7 +7,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/ZeroTechh/VelocityCentral/config"
+	"github.com/ZeroTechh/VelocityCore/config"
 )
 
 func newWinFileSink(u *url.URL) (zap.Sink, error) {
