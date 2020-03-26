@@ -8,13 +8,12 @@ import (
 	"google.golang.org/grpc"
 
 	"github.com/ZeroTechh/VelocityCore/services"
-	"github.com/ZeroTechh/blaze"
 )
 
 // HandlePanic is used to handle panic when it occurs in a microservice
-func HandlePanic(log *blaze.FuncLog) {
+func HandlePanic(log *zap.Logger) {
 	if r := recover(); r != nil {
-		log.Panic("Service Paniced", zap.Any("Panic", r))
+		log.Fatal("Service Paniced", zap.Any("Panic", r))
 	}
 }
 
