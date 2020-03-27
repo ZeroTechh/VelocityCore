@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
-
 service JWT {
     rpc FreshToken(JWTData) returns (Token) {}
     rpc AccessAndRefreshTokens(JWTData) returns (AccessAndRefreshToken) {}
@@ -32,10 +30,9 @@ message TokenValid {
 message Claims {
     string userIdentity = 1;
     repeated string scopes = 2;
-    bool isFresh = 3;
-    bool isRefresh = 4;
-    int64 creationUTC = 5;
-    int64 expirationUTC = 6;
-    string message = 7;
-    bool valid = 8;
+    string tokenType = 3;
+    int64 creationUTC = 4;
+    int64 expirationUTC = 5;
+    string message = 6;
+    bool valid = 7;
 }
