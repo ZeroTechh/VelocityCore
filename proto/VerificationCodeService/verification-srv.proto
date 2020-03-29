@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+service VerificationCode {
+    rpc Create(UserData) returns (tokenData) {}
+    rpc Validate(tokenData) returns (Valid) {}
+}
+
+message UserData {
+    string userID = 1;
+}
+
+message tokenData {
+    string token = 1;
+}
+
+message Valid {
+    string userID = 1;
+    bool valid = 2;
+}
