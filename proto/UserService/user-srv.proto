@@ -62,6 +62,7 @@ message GetRequest {
 message GetResponse {
     UserMain main = 1;
     UserExtra extra = 2;
+    UserMeta meta = 3;
 }
 
 // Auth Function
