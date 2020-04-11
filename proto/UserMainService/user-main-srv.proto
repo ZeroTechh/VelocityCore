@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+service UserMain {
+    rpc Add(Data) returns (AddResponse) {}
+    rpc Get(GetRequest) returns (Data) {}
+    rpc Auth(AuthRequest) returns (AuthResponse) {}
+    rpc Update(UpdateRequest) returns (UpdateResponse) {}
+}
+
+message Data {
+	string userID = 1;
+	string username = 2;
+	string email = 3;
+    string password = 4;
+    string message = 5;
+}
+
+message AddResponse {
+    string userID = 1;
+    string message = 2;
+}
+
+message GetRequest {
+    string userID = 1;
+    string username = 2;
+    string email = 3;
+}
+
+message AuthRequest {
+    string username = 1;
+    string email = 2;
+    string password = 3;
+}
+
+message AuthResponse {
+    bool valid = 1;
+}
+
+message UpdateRequest {
+    string userID = 1;
+    Data update = 2;
+}
+
+message UpdateResponse {
+    string message = 1;
+}
