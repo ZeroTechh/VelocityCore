@@ -34,7 +34,8 @@ func CreateGRPCServer(name string, log *zap.Logger) (*grpc.Server, *net.Listener
 
 	grpcServer := grpc.NewServer()
 
-	grpc.NewServer()
+	interceptor := LogInterceptor{log}
+	grpc.NewServer(grpc.UnaryInterceptor(interceptor.LogGRPCInterceptor))
 	return grpcServer, &lis
 }
 
