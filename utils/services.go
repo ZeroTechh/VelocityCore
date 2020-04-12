@@ -32,10 +32,8 @@ func CreateGRPCServer(name string, log *zap.Logger) (*grpc.Server, *net.Listener
 		panic(err)
 	}
 
-	grpcServer := grpc.NewServer()
-
 	interceptor := LogInterceptor{log}
-	grpc.NewServer(grpc.UnaryInterceptor(interceptor.LogGRPCInterceptor))
+	grpcServer := grpc.NewServer(grpc.UnaryInterceptor(interceptor.LogGRPCInterceptor))
 	return grpcServer, &lis
 }
 
