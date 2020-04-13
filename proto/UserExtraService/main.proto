@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+service UserExtra {
+    rpc Add(Data) returns (AddResponse) {}
+    rpc Get(GetRequest) returns (Data) {}
+    rpc Update(UpdateRequest) returns (UpdateResponse) {}
+}
+
+message Data {
+	string userID = 1;
+    string firstName = 2;
+	string lastName = 3;
+	string gender = 4;
+    int64  birthdayUTC = 5;
+    string message = 6;
+}
+
+message AddResponse {
+    string message = 1;
+}
+
+message GetRequest {
+    string userID = 1;
+}
+
+message UpdateRequest {
+    string userID = 1;
+    Data update = 2;
+}
+
+message UpdateResponse {
+    string message = 1;
+}
