@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+service UserMeta {
+    rpc Add(Identifier) returns (Message) {}
+    rpc Get(Identifier) returns (Data) {}
+    rpc Activate(Identifier) returns (Message) {}
+    rpc Delete(Identifier) returns (Message) {}
+}
+
+message Data {
+    string userID = 1;
+    string accountStatus = 2;
+    int64 accountCreationUTC = 3;
+}
+
+message Identifier {
+    string userID = 1;
+}
+
+message Message {
+    string message = 1;
+}
