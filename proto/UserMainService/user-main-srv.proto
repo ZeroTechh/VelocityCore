@@ -33,7 +33,8 @@ message AuthRequest {
 }
 
 message AuthResponse {
-    bool valid = 1;
+    string userID = 1;
+    bool valid = 2;
 }
 
 message UpdateRequest {
