@@ -4,6 +4,7 @@ service UserExtra {
     rpc Add(Data) returns (AddResponse) {}
     rpc Get(GetRequest) returns (Data) {}
     rpc Update(UpdateRequest) returns (UpdateResponse) {}
+    rpc Validate(Data) returns (ValidateResponse) {}
 }
 
 message Data {
@@ -30,4 +31,8 @@ message UpdateRequest {
 
 message UpdateResponse {
     string message = 1;
+}
+
+message ValidateResponse {
+    bool valid = 1;
 }
