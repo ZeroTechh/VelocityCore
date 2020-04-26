@@ -21,6 +21,7 @@ func HandlePanic(log *zap.Logger) {
 func CreateGRPCServer(name string, log *zap.Logger) (*grpc.Server, *net.Listener) {
 	url := services.ServiceUrls[name]
 	lis, err := net.Listen("tcp", url)
+
 	if err != nil {
 		err := errors.Wrap(err, "Error While Listening")
 		log.Fatal(
@@ -34,6 +35,7 @@ func CreateGRPCServer(name string, log *zap.Logger) (*grpc.Server, *net.Listener
 
 	interceptor := LogInterceptor{log}
 	grpcServer := grpc.NewServer(grpc.UnaryInterceptor(interceptor.LogGRPCInterceptor))
+	log.Info("Service started")
 	return grpcServer, &lis
 }
 
