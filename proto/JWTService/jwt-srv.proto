@@ -4,12 +4,7 @@ service JWT {
     rpc FreshToken(JWTData) returns (Token) {}
     rpc AccessAndRefreshTokens(JWTData) returns (AccessAndRefreshToken) {}
     rpc RefreshTokens(Token) returns (AccessAndRefreshToken) {}
-    rpc ValidateToken(ValidRequest) returns (ValidResponse) {}
-}
-
-message ValidResponse {
-    bool valid = 1;
-    Claims claims = 2;
+    rpc ValidateToken(ValidRequest) returns (Claims) {}
 }
 
 message ValidRequest {
