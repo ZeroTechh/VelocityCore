@@ -4,7 +4,21 @@ service JWT {
     rpc FreshToken(JWTData) returns (Token) {}
     rpc AccessAndRefreshTokens(JWTData) returns (AccessAndRefreshToken) {}
     rpc RefreshTokens(Token) returns (AccessAndRefreshToken) {}
-    rpc ValidateToken(Token) returns (Claims) {}
+    rpc ValidateToken(ValidRequest) returns (ValidResponse) {}
+}
+
+message ValidResponse {
+    bool valid = 1;
+    Claims claims = 2;
+}
+
+message ValidRequest {
+    string token = 1;
+    enum TokenType {
+        ACCESS = 0;
+        FRESH = 1;
+        REFRESH = 2;
+    }
 }
 
 message JWTData {
