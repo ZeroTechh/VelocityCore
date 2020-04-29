@@ -7,13 +7,15 @@ service JWT {
     rpc ValidateToken(ValidRequest) returns (Claims) {}
 }
 
+enum TokenType {
+    ACCESS = 0;
+    FRESH = 1;
+    REFRESH = 2;
+}
+
 message ValidRequest {
     string token = 1;
-    enum TokenType {
-        ACCESS = 0;
-        FRESH = 1;
-        REFRESH = 2;
-    }
+    TokenType type = 2;
 }
 
 message JWTData {
