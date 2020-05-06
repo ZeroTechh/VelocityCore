@@ -34,7 +34,7 @@ func GetLogger(fileName string, debug bool) *zap.Logger {
 	cfg.Encoding = "json"
 
 	cfg.OutputPaths = []string{
-		getLogFilePath(fileName),
+		getLogFilePath("/run/media/roshan/HARD DRIVE/VelocityLogs"),
 	}
 
 	cfg.ErrorOutputPaths = []string{
