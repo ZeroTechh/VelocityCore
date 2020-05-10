@@ -37,6 +37,10 @@ func GetLogger(fileName string, debug bool) *zap.Logger {
 		"/run/media/roshan/HARD DRIVE/VelocityLogs/" + fileName,
 	}
 
+	cfg.ErrorOutputPaths = []string{
+		"/run/media/roshan/HARD DRIVE/VelocityLogs/errors.log",
+	}
+
 	logger, err := cfg.Build()
 	defer logger.Sync()
 	if err != nil {
